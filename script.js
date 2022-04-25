@@ -36,11 +36,13 @@ function promptPlayer() {
 while(1 > 0) {
     let playerMove = convertToNumber(promptPlayer())
     let computerMove = computerPlay()
-    if (computerMove > playerMove || computerMove === 0 && playerMove === 2) {
-        console.log("Computer: " + computerMove + " or " + convertToItem(computerMove))
-        console.log("Player: " + playerMove + " or " + convertToItem(playerMove))
-        console.log(`You lost! ${convertToItem(computerMove)} beats ${convertToItem(playerMove)}.`)
-    } else if (playerMove > computerMove || playerMove === 0 && copmuterMove === 2) {
+    if (computerMove > playerMove) {
+        if (computerMove === 0 && playerMove === 2) {
+            console.log("Computer: " + computerMove + " or " + convertToItem(computerMove))
+            console.log("Player: " + playerMove + " or " + convertToItem(playerMove))
+            console.log(`You lost! ${convertToItem(computerMove)} beats ${convertToItem(playerMove)}.`)
+        }
+    } else if (playerMove > computerMove || playerMove === 0 && computerMove === 2) {
         console.log("Computer: " + computerMove + " or " + convertToItem(computerMove))
         console.log("Player: " + playerMove + " or " + convertToItem(playerMove))
         console.log(`You won! ${convertToItem(playerMove)} beats ${convertToItem(computerMove)}.`)
