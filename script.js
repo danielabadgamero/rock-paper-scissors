@@ -12,4 +12,9 @@ function computerPlay() {
 
 while(1 > 0) {
     let playerMove = prompt("Rock, Paper or Scissors?").toLowerCase()
+    if (playerMove !== "rock" && playerMove !== "paper" && playerMove !== "scissors") {
+        alert("Invalid answer! Try again.")
+    } else {
+        
+    }
 }
