@@ -13,9 +13,13 @@ function convertToItem(num) {
     }
 }
 
-while(1 > 0) {
+function promptPlayer() {
     let playerMove = prompt("Rock, Paper or Scissors?").toLowerCase()
     if (playerMove !== "rock" && playerMove !== "paper" && playerMove !== "scissors") {
         alert("Invalid answer! Try again.")
     }
+}
+
+while(1 > 0) {
+    promptPlayer()
 }
