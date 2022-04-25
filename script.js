@@ -33,7 +33,7 @@ function promptPlayer() {
     } 
 }
 
-prompt("How many rounds do you want to play?")
+let rounds = prompt("How many rounds do you want to play?")
 
 for (let i = 1; i <= rounds; i++) {
     let playerMove = convertToNumber(promptPlayer())
