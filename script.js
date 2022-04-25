@@ -13,11 +13,24 @@ function convertToItem(num) {
     }
 }
 
+function convertToNumber(item) {
+    switch (item) {
+        case "rock":
+            return 0;
+        case "paper":
+            return 1;
+        case "scissors":
+            return 2;
+    }
+}
+
 function promptPlayer() {
     let playerMove = prompt("Rock, Paper or Scissors?").toLowerCase()
     if (playerMove !== "rock" && playerMove !== "paper" && playerMove !== "scissors") {
         alert("Invalid answer! Try again.")
-    }
+    } else {
+        return playerMove
+    } 
 }
 
 while(1 > 0) {
