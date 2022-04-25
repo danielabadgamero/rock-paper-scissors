@@ -3,7 +3,7 @@ function computerPlay() {
 }
 
 function convertToItem(num) {
-    switch num {
+    switch (num) {
         case 0:
             return "rock";
         case 1:
