@@ -33,20 +33,30 @@ function promptPlayer() {
     } 
 }
 
+function playerWon() {
+    console.log(`You won! ${convertToItem(playerMove)} beats ${convertToItem(computerMove)}.`)
+}
+
+function playerLost() {
+    console.log(`You lost! ${convertToItem(computerMove)} beats ${convertToItem(playerMove)}.`)
+}
+
 while(1 > 0) {
     let playerMove = convertToNumber(promptPlayer())
     let computerMove = computerPlay()
-    if (computerMove < playerMove) {
-        if (computerMove === 0 && playerMove === 2) {
-            console.log(`You lost! ${convertToItem(computerMove)} beats ${convertToItem(playerMove)}.`)
-        } else  if (playerMove > computerMove) {
-            console.log(`You won! ${convertToItem(playerMove)} beats ${convertToItem(computerMove)}.`)
-        } else if (computerMove === 2 && playerMove === 0) {
-            console.log(`You won! ${convertToItem(playerMove)} beats ${convertToItem(computerMove)}.`)
-        } else if (computerMove > playerMove) {
-            console.log(`You lost! ${convertToItem(computerMove)} beats ${convertToItem(playerMove)}.`)
+    if (computerMove > playerMove) {
+        if (computerMove === 2 && playerMove === 0) {
+            playerWon()
         } else {
-            console.log("Ties!")
+            playerLost()
         }
+    } else if (playerMove > computerMove) {
+        if (computerMove === 0 && playerMove === 2) {
+            playerLost()
+        } else {
+            playerWon()
+        }
+    } else {
+        console.log("Ties!")
     }
 }
