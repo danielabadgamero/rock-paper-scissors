@@ -35,7 +35,7 @@ function promptPlayer() {
 
 let rounds = prompt("How many rounds do you want to play?")
 
-for (let i = 1; i <= rounds; i++) {
+for (let i = 0; i < rounds; i++) {
     let playerMove = convertToNumber(promptPlayer())
     let computerMove = computerPlay()
     if (computerMove > playerMove) {
