@@ -34,5 +34,13 @@ function promptPlayer() {
 }
 
 while(1 > 0) {
-    promptPlayer()
+    let playerMove = convertToNumber(promptPlayer())
+    let computerMove = computerPlay()
+    if (computerMove > playerMove || computerMove === 0 && playerMove === 2) {
+        console.log(`You lost! ${computerMove} beats ${playerMove}.`)
+    } else if (playerMove > computerMove || playerMove === 0 && copmuterMove === 2) {
+        console.log(`You won! ${playerMove} beats ${computerMove}.`)
+    } else {
+        console.log("Ties!")
+    }
 }
