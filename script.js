@@ -48,7 +48,6 @@ while(1 > 0) {
         } else {
             console.log(`You won! ${convertToItem(playerMove)} beats ${convertToItem(computerMove)}.`)
         }
-    } else {
-        console.log("Ties!")
-    }
+    } else if (!playerMove)
+    console.log("Ties!")
 }
