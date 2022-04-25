@@ -10,4 +10,6 @@ function computerPlay() {
     }
 }
 
-console.log(computerPlay())
+while(1 > 0) {
+    let playerMove = prompt("Rock, Paper or Scissors?").toLowerCase()
+}
