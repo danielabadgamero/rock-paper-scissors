@@ -50,7 +50,7 @@ for (let i = 0; i < rounds; i++) {
         } else {
             console.log(`You won! ${convertToItem(playerMove)} beats ${convertToItem(computerMove)}.`)
         }
-    } else if (playerMove) {
+    } else if (playerMove !== null && playerMove !== undefined) {
     console.log("Ties!")
     }
 }
