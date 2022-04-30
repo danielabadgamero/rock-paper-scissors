@@ -30,10 +30,32 @@ function play() {
                 result.innerHTML += "Ties!<br>"
                 break;
             case "paper":
-                result.innerHTML +=  "You won! Paper beats rock.<br>"
+                result.innerHTML += "You won! Paper beats rock.<br>"
                 break;
             case "scissors":
                 result.innerHTML += "You lost! Rock beats Scissors.<br>"
+        }
+    } else if (computerMove === "paper") {
+        switch (playerMove) {
+            case "rock":
+                result.innerHTML += "You lost! Paper beats Rock.<br>";
+                break;
+            case "paper":
+                result.innerHTML += "Ties!<br>";
+                break;
+            case "scissors":
+                result.innerHTML += "You won! Scissors beats rock.<br>";
+        }
+    }else {
+        switch (playerMove) {
+            case "rock":
+                result.innerHTML += "You won! Rock beats scissors.<br>"
+                break;
+            case "paper":
+                result.innerHTML += "You lost! Scissors bets paper.<br>"
+                break;
+            case "scissors":
+                result.innerHTML += "Ties!<br>"
         }
     }
 }
@@ -66,4 +88,10 @@ scissors.addEventListener('click', () => {
     scissors.classList.add("clicked");
     setTimeout(function () {scissors.classList.remove("clicked")}, 100);
     play();
+})
+
+endGame.addEventListener('click', () => {
+    endGame.classList.add("clicked");
+    setTimeout(function () {endGame.classList.remove("clicked")}, 100);
+    result.innerHTML = "";
 })
