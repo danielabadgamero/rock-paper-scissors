@@ -94,4 +94,5 @@ endGame.addEventListener('click', () => {
     endGame.classList.add("clicked");
     setTimeout(function () {endGame.classList.remove("clicked")}, 100);
     result.innerHTML = "";
+    window.location.href = "result.html";
 })
