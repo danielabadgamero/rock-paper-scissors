@@ -102,3 +102,16 @@ button {
 .clicked {
     background-color: #666;
 }
+
+#return {
+    height: calc(350px / 3);
+    width: calc(350px / 3);
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 3px;
+    display: flex;
+    border-color: #373737;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}

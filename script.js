@@ -10,6 +10,7 @@ const result = document.querySelector(".result");
 let playerMove
 let computerMove
 let roundsWon
+let roundsLost
 
 function playComputer() {
     let random = Math.floor(Math.random() * 3)
@@ -31,28 +32,34 @@ function play() {
                 break;
             case "paper":
                 result.innerHTML += "You won! Paper beats rock.<br>"
+                roundsWon++
                 break;
             case "scissors":
                 result.innerHTML += "You lost! Rock beats Scissors.<br>"
+                roundsLost++
         }
     } else if (computerMove === "paper") {
         switch (playerMove) {
             case "rock":
                 result.innerHTML += "You lost! Paper beats Rock.<br>";
+                roundsLost++
                 break;
             case "paper":
                 result.innerHTML += "Ties!<br>";
                 break;
             case "scissors":
                 result.innerHTML += "You won! Scissors beats rock.<br>";
+                roundsWon++
         }
     }else {
         switch (playerMove) {
             case "rock":
                 result.innerHTML += "You won! Rock beats scissors.<br>"
+                roundsWon++
                 break;
             case "paper":
                 result.innerHTML += "You lost! Scissors bets paper.<br>"
+                roundsLost++
                 break;
             case "scissors":
                 result.innerHTML += "Ties!<br>"
@@ -64,6 +71,7 @@ newGame.addEventListener('click', () => {
     playerMove = 0;
     computerMove = 0;
     roundsWon = 0;
+    roundsLost = 0;
     result.innerHTML = "";
     newGame.classList.add("clicked");
     setTimeout(function () {newGame.classList.remove("clicked")}, 100);
