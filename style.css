@@ -66,6 +66,7 @@ span {
 
 button {
     gap: 20px;
+    cursor: pointer;
 }
 
 .items {
@@ -94,4 +95,10 @@ button {
     border-radius: 20px;
     border-width: 3px;
     border-color: #111;
+    padding: 20px;
+    font-size: 14px;
+}
+
+.clicked {
+    background-color: #666;
 }
