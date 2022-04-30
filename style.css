@@ -64,7 +64,7 @@ footer {
     gap: 50px;
 }
 
-.items div {
+.items button {
     height: calc(350px / 3);
     width: calc(350px / 3);
     border-style: solid;
