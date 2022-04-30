@@ -1,5 +1,5 @@
 const newGame = document.querySelector("#new-game");
-const newRound = document.querySelector("#new-round");
+const endGame = document.querySelector("#end-game");
 
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
@@ -22,6 +22,22 @@ function playComputer() {
     }
 }
 
+function play() {
+    playComputer();
+    if (computerMove === "rock") {
+        switch (playerMove) {
+            case "rock":
+                result.innerHTML += "Ties!<br>"
+                break;
+            case "paper":
+                result.innerHTML +=  "You won! Paper beats rock.<br>"
+                break;
+            case "scissors":
+                result.innerHTML += "You lost! Rock beats Scissors.<br>"
+        }
+    }
+}
+
 newGame.addEventListener('click', () => {
     playerMove = 0;
     computerMove = 0;
@@ -35,16 +51,19 @@ rock.addEventListener('click', () => {
     playerMove = "rock"
     rock.classList.add("clicked");
     setTimeout(function () {rock.classList.remove("clicked")}, 100);
+    play();
 })
 
 paper.addEventListener('click', () => {
     playerMove = "paper"
     paper.classList.add("clicked");
     setTimeout(function () {paper.classList.remove("clicked")}, 100);
+    play();
 })
 
 scissors.addEventListener('click', () => {
     playerMove = "scissors"
     scissors.classList.add("clicked");
     setTimeout(function () {scissors.classList.remove("clicked")}, 100);
+    play();
 })
