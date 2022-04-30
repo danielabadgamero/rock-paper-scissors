@@ -11,6 +11,7 @@ let playerMove
 let computerMove
 let roundsWon
 let roundsLost
+let roundsLog = []
 
 function playComputer() {
     let random = Math.floor(Math.random() * 3)
@@ -29,45 +30,55 @@ function play() {
         switch (playerMove) {
             case "rock":
                 result.innerHTML += "Ties!<br>"
+                roundsLog.push("Ties!")
                 break;
             case "paper":
                 result.innerHTML += "You won! Paper beats rock.<br>"
+                roundsLog.push("You won! Paper beats rock.<br>")
                 roundsWon++
                 break;
             case "scissors":
                 result.innerHTML += "You lost! Rock beats Scissors.<br>"
+                roundsLog.push("You lost! Rock beats Scissors.<br>")
                 roundsLost++
         }
     } else if (computerMove === "paper") {
         switch (playerMove) {
             case "rock":
                 result.innerHTML += "You lost! Paper beats Rock.<br>";
+                roundsLog.push("You lost! Paper beats Rock.<br>")
                 roundsLost++
                 break;
             case "paper":
                 result.innerHTML += "Ties!<br>";
+                roundsLog.push("Ties!")
                 break;
             case "scissors":
                 result.innerHTML += "You won! Scissors beats rock.<br>";
+                roundsLog.push("You won! Scissors beats rock.<br>")
                 roundsWon++
         }
     }else {
         switch (playerMove) {
             case "rock":
                 result.innerHTML += "You won! Rock beats scissors.<br>"
+                roundsLog.push("You won! Rock beats scissors.<br>")
                 roundsWon++
                 break;
             case "paper":
                 result.innerHTML += "You lost! Scissors bets paper.<br>"
+                roundsLog.push("You lost! Scissors beats rock.<br>")
                 roundsLost++
                 break;
             case "scissors":
                 result.innerHTML += "Ties!<br>"
+                roundsLog.push("Ties!")
         }
     }
 }
 
 newGame.addEventListener('click', () => {
+    roundsLog = [];
     playerMove = 0;
     computerMove = 0;
     roundsWon = 0;
@@ -101,6 +112,34 @@ scissors.addEventListener('click', () => {
 endGame.addEventListener('click', () => {
     endGame.classList.add("clicked");
     setTimeout(function () {endGame.classList.remove("clicked")}, 100);
-    result.innerHTML = "";
-    window.location.href = "result.html";
+    if (roundsWon > roundsLost) {
+        result.innerHTML = "You won!";
+    } else if (roundsLost > roundsWon) {
+        result.innerHTML = "You lost!";
+    } else {
+        result.innerHTML = "Ties!";
+    }
 })
+
+if (roundsLog.length >= 12) {
+    rock.removeEventListener('click', () => {
+        playerMove = "rock"
+        rock.classList.add("clicked");
+        setTimeout(function () {rock.classList.remove("clicked")}, 100);
+        play();
+    })
+
+    paper.removeEventListener('click', () => {
+        playerMove = "paper"
+        paper.classList.add("clicked");
+        setTimeout(function () {paper.classList.remove("clicked")}, 100);
+        play();
+    })
+
+    scissors.removeEventListener('click', () => {
+        playerMove = "scissors"
+        scissors.classList.add("clicked");
+        setTimeout(function () {scissors.classList.remove("clicked")}, 100);
+        play();
+    })
+}
